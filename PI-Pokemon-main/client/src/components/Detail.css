@@ -1,0 +1,57 @@
+.container{
+  background: url('https://cdn.wallpapersafari.com/88/2/MlLVcW.jpg');
+  /* padding-bottom: 6%; */
+  display:flex;
+    margin-left: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.headD{
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(74, 74, 74);
+}
+
+.headD h1{
+  text-align: center;
+  color: white;
+  padding-left: 15em;
+}
+
+.headD button{
+	margin-top: 2vh;
+	margin-left: 4vh;
+  margin-bottom: 1.5vh;
+	padding: 3vh;
+	border-radius: 4px;
+	background-color: #af774c6b; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.card{
+  background-color: rgba(110, 106, 106, 0.441);
+}
+.card img{
+  margin-bottom: 16px;
+}
+
+.card h2{
+  text-align: left;
+  color: rgb(206, 111, 44);
+  margin-top: -10px;
+}
+.infoD h2{
+  text-align: center;
+  color: rgb(218, 35, 35);
+}
+
+.tipardos{
+  display: flex;
+}

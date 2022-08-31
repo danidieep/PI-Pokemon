@@ -1,0 +1,105 @@
+
+.header{
+    display: flex;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-vjPhli-GzgK3Hid90g_yOjIOtqF3DUWQwKqrIKeGcjBp8BwZkbTzyMAi3xuaWoGvJAE&usqp=CAU');
+    margin-top: -15px;
+}
+
+.header Link{
+    text-align: right;
+    justify-content: left;
+    
+}
+
+.titulo{
+    text-align: left;
+    justify-content: left;
+}
+
+.titulo h2{
+    color: rgb(255, 255, 255);
+}
+.titulo h1{
+    color: rgb(255, 247, 0);
+    margin-top: -20px;
+}
+
+.botonCreate{
+    text-align: left;
+    padding-left: 120vh;
+    padding-top: 2em;
+}
+
+ .botonCreate button{
+    background-color: #59af4c6b; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.botonCreate button:hover{
+    background-color: #1d3f0c5f ;
+}
+
+.headsortfilter{
+    padding-top: 2.5em;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRQRNsOg09Qx_mioLgK5T8yvEcvAui5WwH9A&usqp=CAU') ;
+    margin-bottom: -10px;
+
+}
+
+.headsortfilter select{
+    display: flex;
+    flex-direction: column;
+}
+
+.orden{
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    padding-left: 3vh;
+    margin-top: -25px;
+
+}
+
+.orden h2{
+    color: lavender;
+}
+
+.searchBar{
+    margin-top: -55px;
+    /* background: rgb(35, 119, 255); */
+    text-align: left;
+    padding-left: 80vh;
+    /* padding-top: 2em; */
+}
+
+.pokesContainer{
+    /* background: rgb(200, 255, 238); */
+    background: url('https://w0.peakpx.com/wallpaper/928/440/HD-wallpaper-pixel-magikarp-fish-game-art-gaming-nintendo-pixel-art-pokemon-theme-video-games.jpg');
+    /* padding-left: 10em; */
+    padding-top: 2em;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-gap: 90px;
+    grid-auto-rows: minmax(100px, auto);
+    justify-content: space-around;
+} 
+
+/* .cards{
+} */
+
+.paginado{
+    background: rgb(200, 255, 238);
+    text-align: center;
+    margin-right: 2em;
+}

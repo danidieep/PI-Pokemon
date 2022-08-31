@@ -1,0 +1,27 @@
+.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination ul li{
+    display: inline;
+    
+}
+
+.pagination li a {
+    color: rgb(66, 36, 255);
+    float: left;
+    padding: 20px 40px;
+    text-decoration: none;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+
+.pagination li a.active{
+    background-color: rgb(0, 179, 255);
+}
+
+.pagination li a:hover:not(.active){
+    background-color: rgba(72, 0, 165, 0.55);
+}

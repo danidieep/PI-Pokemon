@@ -1,0 +1,93 @@
+
+  .container{
+    background: url('https://cdn.wallpapersafari.com/88/2/MlLVcW.jpg');
+    /* padding-bottom: 6%; */
+    display:flex;
+      margin-left: auto;
+      text-align: center;
+      justify-content: center;
+}
+
+
+
+  .head{
+      display: flex;
+      flex-direction: row;
+      background-color: rgba(74, 74, 74, 0.619);
+  }
+
+  .head h1{
+      text-align: center;
+      color: white;
+      padding-left: 14em;
+  }
+
+  .head button{
+	margin-top: 2vh;
+	margin-left: 4vh;
+	padding: 3vh;
+	border-radius: 4px;
+	background-color: #af774c6b; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+  .form{
+      background-color: rgba(128, 128, 128, 0.263);
+      padding-bottom: 7%;
+      width: 30em;
+  }
+
+.labels{
+    display: grid;
+    grid-template-columns: 100px 500px;
+}
+
+.labels label{
+    margin-top: 2em;
+    color: white;
+}
+
+.labels input{
+    border: 2px solid rgb(149, 255, 162);
+    border-radius: 4px;
+    width : 350px;
+    padding-top: 1em;
+    margin-top: 2em;
+    box-sizing: border-box;
+}
+
+.listaTipos ul li{
+    display: flex;
+    width: 92%;
+}
+
+.listaTipos li{
+    background-color: rgba(255, 255, 255, 0.598);
+}
+
+.botonD{
+    display: flex;
+    flex-direction: row;
+}
+
+.botonS{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.botonS:hover{
+    background-color: rgb(200, 255, 238);;
+    color: rgb(0, 0, 0);
+}
