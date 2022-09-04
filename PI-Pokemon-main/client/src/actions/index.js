@@ -58,7 +58,7 @@ export function resetDetail(){
 
 export function postPokemon(payload){
     return async function (dispatch){
-        var post = await axios.post('http://localhost:3001/pokemons', payload)
+        var post = await axios.post('/pokemons', payload)
         return post
     }
 }
