@@ -33,11 +33,15 @@ export default function Detail(props){
 
                { 
                 loader  ? 
-                 <img
+                <div className="loader">
+                <img
                 src={"https://static.wixstatic.com/media/20abc5_e58061f333744c2899c375ec7f024eb3~mv2.gif"}
                 width="250px" height="300px"
                 alt="Not found"
-              /> :
+                />
+                </div>
+                 
+                 :
                 <div className="container">
                <div className="card">
                 <img src={details.img} alt='img' width='200px' height='200px' />

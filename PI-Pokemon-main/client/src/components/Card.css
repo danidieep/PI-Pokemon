@@ -14,3 +14,13 @@
     border-radius: 1em;
     
 }
+
+.cards h1{
+    font-size: 25px;
+    color: rgb(221, 141, 36);
+    text-decoration: none;
+}
+
+.cards h2{
+    color: blue;
+}

@@ -12,7 +12,9 @@ export default function Home(){
 
     const allPokemons = useSelector((state) => state.allPokemons)
     const allTypes = useSelector((state) => state.types)
-    console.log(allPokemons)  
+    console.log(allPokemons) 
+    
+    
     const [orden, setOrden] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [pokemonsPerPage, setPokemonsPerPage] =useState(12)
@@ -60,30 +62,37 @@ export default function Home(){
         dispatch(filterByType(e.target.value))
     }
 
-
     return (
         
         <Fragment>
             {
             allPokemons.length>0 ?
             <div>
+                <div className='cabecera'>
                 <div className='header'>
                  <div className='titulo'>
                 <h2>Henry PI</h2>
                 <h1>Pokemon</h1>
                 </div>
+                <div className='searchBar'>
+                <h2>Buscar pokemons por nombre</h2> 
+                <SearchBar/>
+                </div>
                 <div className='botonCreate'>
-                    <Link to= '/pokemons'><button>Crear pokemon</button></Link>
+                    <Link to= '/pokemons'><button >Crear pokemon</button></Link>
                 </div>
             </div>
-            
             <div className='headsortfilter'>
                 <div className='orden'>
+                    <p>Ordenar alfabeticamente</p>
             <select onChange={e => handleOrdenByName(e)}>
                 <option value="normal">Ordenar alfabeticamente</option>
                 <option value="asc">Orden de A-Z</option>
                 <option value="desc">Orden de Z-A</option>
             </select>
+            </div>
+            <div className='orden'>
+                <p>Ordenar por puntos de ataque</p>
             <select onChange={e => handleOrderByAttack(e)}> 
                 <option value="normal">Ordenar por ataque</option>
                 <option value="ascA">Menos ataque</option>
@@ -91,23 +100,22 @@ export default function Home(){
             </select>
             </div>
             <div className='orden'>
+                <p>Filtrar pokemons API/BDD</p>
             <select onChange={e => handleFilterByCreated(e)}>
-                <option value="All">Filtrado por api/db</option>
+                <option value="All">Todos</option>
                 <option value="api">Pokemons de api</option>
                 <option value="creados">Pokemons creados</option>
             </select>
+            </div>
+            <div className='orden'>
+                <p>Filtrar pokemons por tipo</p>
             <select onChange={e => handleFilterByType(e)} >
-                <option  value='Todos' >Filtrado por tipo</option>
                     {allTypes && allTypes.map((g) =><option value={g.name}>{g.name}</option>)}      
-                  </select>
+                  </select>     
             </div>
-
-            <div className='searchBar'>
-                <h2>Buscar pokemons por nombre</h2> 
-                <SearchBar/>
+            
             </div>
-            </div>
-           
+           </div>
             
 
             
@@ -116,7 +124,7 @@ export default function Home(){
                     currentPokemons && currentPokemons?.map((e) =>{
                         return(
                             <div>
-                                <Link to={'/home/' + e.id}>
+                                <Link className='link' to={'/home/' + e.id}>
                                     <div className='cards'>
                                         <Card name={e.name} img={e.img} types={e.types}/>
                                     </div>
@@ -134,10 +142,13 @@ export default function Home(){
                  paginado={paginado}
                  />
             </div>
-            </div> : <img
+            </div> : <div className="loader">
+                <img
                 src={"https://static.wixstatic.com/media/20abc5_e58061f333744c2899c375ec7f024eb3~mv2.gif"}
                 width="250px" height="300px"
-                alt="Not found"/>
+                alt="Not found"
+                />
+                </div>
         } 
         </Fragment>
     )

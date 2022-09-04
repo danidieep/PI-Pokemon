@@ -8,23 +8,34 @@ function validate(input){
     let errors={}
     if(!input.name){
         errors.name = 'se requiere un Nombre'
-    }else if(input.img.length > 255){
-        errors.img = 'Prueba con una url mas corta!'
-    }else if(input.hp > 120 || input.hp < 0){
-        errors.hp = 'La cantidad de vida no esta permitida elija una cantidad entre 0 y 120'
-    }else if(input.attack  > 120 || input.attack < 0){
-        errors.attack = 'La cantidad de ataque no esta permitida elija una cantidad entre 0 y 120'
-    }else if(input.defense  > 120 || input.defense < 0){
-        errors.defense = 'La cantidad de defensa no esta permitida elija una cantidad entre 0 y 120'
-    }else if(input.speed  > 120 || input.speed < 0){
-        errors.speed = 'La cantidad de velocidad no esta permitida elija una cantidad entre 0 y 120'
-    }  else if(input.height > 2300){
-        errors.height = "La altura de tu pokemon no puede superar los 2300Mts"
-    }else if(input.weight > 50000){
-        errors.height = "El peso de tu pokemon no debe superar los 50000 Kg"
-    }else if(input.types.length > 2){
-        errors.types = 'Los pokemons no pueden tener mas de 2 tipos!'
     }
+    if(input.img.length > 255){
+        errors.img = 'Prueba con una url mas corta!'
+    }
+    // else if(!/(http(s?):)([/|.|\w|\s|-])*\.(jpg|gif|png|jpeg)/.test(input.image)){
+    //     errors.img = 'La direccion url de la imagen es invalida, deberia ser del tipo png, jpeg, jpg, gif'
+    // }
+    if(input.hp > 120 || input.hp < 0){
+        errors.hp = 'La cantidad de vida no esta permitida elija una cantidad entre 0 y 120'
+    } 
+    if(input.attack  > 120 || input.attack < 0){
+        errors.attack = 'La cantidad de ataque no esta permitida elija una cantidad entre 0 y 120'
+    }
+     if(input.defense  > 120 || input.defense < 0){
+        errors.defense = 'La cantidad de defensa no esta permitida elija una cantidad entre 0 y 120'
+    }
+     if(input.speed  > 120 || input.speed < 0){
+        errors.speed = 'La cantidad de velocidad no esta permitida elija una cantidad entre 0 y 120'
+    }  
+     if(input.height > 2300){
+        errors.height = "La altura de tu pokemon no puede superar los 2300Mts"
+    }
+     if(input.weight > 50000){
+        errors.height = "El peso de tu pokemon no debe superar los 50000 Kg"
+    }
+      if(input.types.length > 2){
+        errors.types = 'Los pokemons no pueden tener mas de 2 tipos!'
+    } 
     return errors
 }
 
@@ -53,13 +64,19 @@ export default function PokemonCreate(){
         }))
     }
 
+
     function handleSelect(e){
         setInput ({
            ...input,
            types: [...input.types, e.target.value]
-       })}
+       })
+       setErrors(validate({
+           ...input,
+           types: [...input.types, e.target.value]
+       }))
+    }
 
-    //    console.log(errors)
+       console.log(errors)
 
     function handleSubmit(e){
         e.preventDefault()
@@ -73,7 +90,7 @@ export default function PokemonCreate(){
             e.preventDefault()
             setErrors('')
         }else if(!input.types.length){
-        alert('Error: Tu pokemon tiene que tener tipo')
+        alert('Error: Tu pokemon tiene que tener al menos un tipo')
         e.preventDefault()
         setErrors('')
         }
@@ -174,17 +191,20 @@ export default function PokemonCreate(){
                             <option value={t.name}>{t.name}</option>
                         ))}
                     </select>
+                    {
+                  errors?.types? (<p className='error'>{errors.types}</p>) : false
+                }
                     </div>
                     <div className="listaTipos">
                     <ul><li>{
                     input.types.map(e=>
                         <div className="botonD">
-                            <p>{e}</p>
+                            <p>{e} </p>
                             <button onClick={()=> handleDelete(e)}>X</button>
                         </div>
                         )
                 }</li></ul>
-                
+                    
                     </div>
                     <button className="botonS" type="submit">Crear pokemon</button>
                 </form>
