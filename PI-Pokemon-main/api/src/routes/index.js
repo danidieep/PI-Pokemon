@@ -102,7 +102,7 @@ router.post('/pokemons' , async(req, res) =>{
     let {name, img, types, hp, attack, defense, speed, height, weight, createdInDb} = req.body
     try {
         let createPokemon = await Pokemon.create({
-            name, img, hp, attack, defense, speed, height, weight, createdInDb
+            name, img, hp, attack, defense, speed, height, weight, createdInDb:true
         })
         if(Array.isArray(types) && types.length){
             var typesDb = await Type.findAll({
@@ -112,6 +112,17 @@ router.post('/pokemons' , async(req, res) =>{
       
         createPokemon.setTypes(typesDb)
         res.send('creado con exito')
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.delete('/pokemons', async (req, res, next) =>{
+    let {id} = req.params
+    try {
+        Pokemon.destroy({
+            where:id
+        })
     } catch (error) {
         console.log(error)
     }
