@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { getPokemonByID, resetDetail } from "../actions";
+import { deletePokemon, getPokemonByID, resetDetail } from "../actions";
 import './Detail.css'
 
 export default function Detail(props){
@@ -23,11 +23,22 @@ export default function Detail(props){
         history.push('/home')
     }
 
+    let asda = props.match.params.id
+    console.log(asda)
+
+    function handleDelete(e){
+        e.preventDefault()
+        dispatch(deletePokemon(asda))
+        history.push('/home')
+    }
+
     return (
         <Fragment>
             <div className="headD">
             <button onClick={handleReset} >Volver</button>
                 <h1>Pokedex</h1>
+                <button onClick={(e)=>handleDelete(e)}>borrar</button>
+
             </div>
 
 
@@ -44,7 +55,9 @@ export default function Detail(props){
                  :
                 <div className="container">
                <div className="card">
+
                 <img src={details.img} alt='img' width='200px' height='200px' />
+
                     <h2>Nombre: {details.name}</h2>
                   <div className="tipardos"><h2>Tipos: </h2>
                   <h2>{typeof details.types[0] === 'string' ? details.types[0] : details.types[0]?.name + ' - '}

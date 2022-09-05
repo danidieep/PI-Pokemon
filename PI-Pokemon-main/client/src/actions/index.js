@@ -63,6 +63,18 @@ export function postPokemon(payload){
     }
 }
 
+export function deletePokemon(id){
+    return async function (dispatch){
+        try {
+            var borrar = await axios.delete('/pokemons/' + id)
+            
+            return borrar
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 export function orderByName(payload){
     return {
         type: 'ORDER_BY_NAME',

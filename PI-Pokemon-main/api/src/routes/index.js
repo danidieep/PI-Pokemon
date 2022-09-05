@@ -117,14 +117,16 @@ router.post('/pokemons' , async(req, res) =>{
     }
 })
 
-router.delete('/pokemons', async (req, res, next) =>{
+router.delete('/pokemons/:id', async (req, res, next) =>{
     let {id} = req.params
     try {
-        Pokemon.destroy({
-            where:id
+         Pokemon.destroy({
+            where:{id:id}
         })
+        res.send('eliminado con exito')
     } catch (error) {
         console.log(error)
+        res.send('este pokemon no existe')
     }
 })
 

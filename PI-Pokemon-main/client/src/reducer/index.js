@@ -44,6 +44,10 @@ function rootReducer(state = initialState, action){
                 return {
                 ...state,
                 }
+        case 'DELETE_POKEMON':
+            return{
+                ...state
+            }
         case 'RESET_DETAIL':
             return{
                 ...state,
