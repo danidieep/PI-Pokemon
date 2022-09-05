@@ -37,7 +37,6 @@ export default function Detail(props){
             <div className="headD">
             <button onClick={handleReset} >Volver</button>
                 <h1>Pokedex</h1>
-                <button onClick={(e)=>handleDelete(e)}>borrar</button>
 
             </div>
 
@@ -55,6 +54,7 @@ export default function Detail(props){
                  :
                 <div className="container">
                <div className="card">
+               <button onClick={(e)=>handleDelete(e)}>borrar</button>
 
                 <img src={details.img} alt='img' width='200px' height='200px' />
 
